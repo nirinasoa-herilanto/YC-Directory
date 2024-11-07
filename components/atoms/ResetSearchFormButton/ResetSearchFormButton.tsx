@@ -7,7 +7,7 @@ import { X } from 'lucide-react';
 
 import { Button } from '../button';
 
-const ResetFormButton = ({ resetValue }: { resetValue: string }) => {
+const ResetSearchFormButton = ({ query }: { query: string }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -15,7 +15,7 @@ const ResetFormButton = ({ resetValue }: { resetValue: string }) => {
   const resetQuery = () => {
     const params = new URLSearchParams(searchParams);
 
-    if (resetValue) {
+    if (query) {
       params.delete('query');
     }
 
@@ -34,4 +34,4 @@ const ResetFormButton = ({ resetValue }: { resetValue: string }) => {
   );
 };
 
-export default ResetFormButton;
+export default ResetSearchFormButton;

@@ -3,7 +3,7 @@ import Form from 'next/form';
 
 import { Search } from 'lucide-react';
 
-import { Button, ResetFormButton } from '@project/components/atoms';
+import { Button, ResetSearchFormButton } from '@project/components/atoms';
 
 export type SearchFormProps = {
   className?: string;
@@ -24,7 +24,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ className, query }) => {
         placeholder="Search Startups ..."
       />
 
-      {query && <ResetFormButton resetValue={query} />}
+      {query && <ResetSearchFormButton query={query} />}
 
       <Button className="rounded-full" type="submit" size="icon">
         <Search className="size-5" />
