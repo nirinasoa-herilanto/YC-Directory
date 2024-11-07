@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## YC Directory
 
-## Getting Started
+A project that allows Entrepreneurs to introduce and pitch their Startups and connect with others easily 😀.
 
-First, run the development server:
+## Motivations
+
+- Learn more about Next-JS 15 and its new features.
+- Gaining experiences and discovering other technologies such as Sanity, Sentry, ...
+
+## Getting started
+
+When developing this project, I used `pnpm` as a package manager and re-created the project with my coding style, but some assets and code snippets were picked from the original repository that we can find [here](https://github.com/adrianhajdin/yc_directory).
+
+- pnpm installation:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install -g pnpm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1 - Local development:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- We can clone the project by following this command:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/nirinasoa-herilanto/YC-Directory
+```
 
-## Learn More
+- After cloning the project, please make sure that we are inside the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm install // for installing project dependencies
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- For running the project in local development:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+We can see the project on the browser at [http://localhost:3000/](http://localhost:3000/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- For running Storybook:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm storybook
+```
+
+We can see the project stories on the browser at [http://localhost:6006/](http://localhost:6006/)
+
+### 2 - Env variables:
+
+Please, create file `.env.local` inside the project root directory, then add:
+
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=
+
+```
+
+PS: Some env variables will be added later 😉.
+
+## Authentication with Next Auth
+
+## Tech stacks
+
+- Next-JS 15
+- Next Auth
+- Typescript
+- Tailwind CSS
+- Shadcn/UI
+- Sanity
+- Storybook
+
+## Deployment N/A
+
+## Author
+
+Nirinasoa Herilanto
+
+## Acknowledgments
+
+- Thanks to `JS Mastery teams` for this learning project.
