@@ -1,10 +1,16 @@
-import type { Preview } from "@storybook/react";
+import '../styles/output.css';
+
+import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
   parameters: {
     storySort: {
-      method: "alphabetical",
-      order: ["introduction", "system", "*"],
+      method: 'alphabetical',
+      order: ['introduction', 'system', '*'],
+    },
+    tags: ['autodocs'],
+    nextjs: {
+      appDirectory: true,
     },
     controls: {
       matchers: {
