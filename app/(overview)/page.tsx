@@ -12,13 +12,13 @@ const heroPlaceholder = {
 export default async function page({
   searchParams,
 }: {
-  searchParams: Promise<{ query: string }>;
+  searchParams: Promise<{ [key: string]: string }>;
 }) {
-  const query = (await searchParams).query;
+  const query = (await searchParams)?.query;
 
   return (
     <main>
-      <HeroTemp placeholder={heroPlaceholder} />
+      <HeroTemp placeholder={heroPlaceholder} query={query} />
       <StartupCollectionsTemp query={query} />
     </main>
   );
