@@ -8,9 +8,10 @@ const meta: Meta<typeof SubHeading> = {
 };
 
 export default meta;
-type StorySubHeading = StoryObj<typeof SubHeading>;
 
-export const Default: StorySubHeading = {
+type SubHeadingStory = StoryObj<typeof SubHeading>;
+
+export const Default: SubHeadingStory = {
   args: {
     children: 'Pitch your startup, connect with entrepreneurs',
     className: 'bg-blue-500',
