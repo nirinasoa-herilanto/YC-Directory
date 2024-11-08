@@ -13,6 +13,12 @@ type SearchFormStory = StoryObj<typeof SearchForm>;
 
 export const Default: SearchFormStory = {
   args: {
+    query: '',
+  },
+};
+
+export const WithQuery: SearchFormStory = {
+  args: {
     query: 'Robots',
   },
 };
