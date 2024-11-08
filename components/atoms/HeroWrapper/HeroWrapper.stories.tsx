@@ -8,9 +8,10 @@ const meta: Meta<typeof HeroWrapper> = {
 };
 
 export default meta;
-type StoryHeroWrapper = StoryObj<typeof HeroWrapper>;
 
-export const Default: StoryHeroWrapper = {
+type HeroWrapperStory = StoryObj<typeof HeroWrapper>;
+
+export const Default: HeroWrapperStory = {
   args: {
     children: 'Pitch your startup, connect with entrepreneurs',
   },

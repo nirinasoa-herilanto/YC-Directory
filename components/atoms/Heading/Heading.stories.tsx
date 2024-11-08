@@ -8,9 +8,10 @@ const meta: Meta<typeof Heading> = {
 };
 
 export default meta;
-type StoryHeading = StoryObj<typeof Heading>;
 
-export const Default: StoryHeading = {
+type HeadingStory = StoryObj<typeof Heading>;
+
+export const Default: HeadingStory = {
   args: {
     children: 'Pitch your startup, connect with entrepreneurs',
   },
