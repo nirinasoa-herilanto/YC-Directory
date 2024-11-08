@@ -2,10 +2,16 @@ import { logoutAction } from '@project/lib/actions';
 
 import { Button } from '../button';
 
-export default function LogoutButton() {
+export type LogoutButtonProps = {
+  className?: string;
+};
+
+export default function LogoutButton({ className }: LogoutButtonProps) {
   return (
-    <form action={logoutAction}>
-      <Button type="submit">Logout</Button>
+    <form className={`${className || ''}`} action={logoutAction}>
+      <Button className="w-full" type="submit">
+        Logout
+      </Button>
     </form>
   );
 }
