@@ -7,5 +7,6 @@ export interface IStartup {
   author: IAuthor;
   views: number;
   image: string;
-  _createdAt: string;
+  category: string;
+  _createdAt: Date;
 }

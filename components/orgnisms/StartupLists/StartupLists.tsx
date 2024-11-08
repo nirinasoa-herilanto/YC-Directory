@@ -11,7 +11,9 @@ export type StartupListsProps = {
 
 const StartupLists: React.FC<StartupListsProps> = ({ className, data }) => {
   return (
-    <ul className={`card_grid ${className || ''}`}>
+    <ul
+      className={`grid gap-5 md:grid-cols-2 lg:grid-cols-3  ${className || ''}`}
+    >
       {data.map((startup) => (
         <StartupItem key={startup._id} startup={startup} />
       ))}

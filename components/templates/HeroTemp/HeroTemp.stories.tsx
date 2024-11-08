@@ -9,7 +9,7 @@ const meta: Meta<typeof HeroTemp> = {
 
 export default meta;
 
-type StoryHeroTemp = StoryObj<typeof HeroTemp>;
+type HeroTempStory = StoryObj<typeof HeroTemp>;
 
 const heroPlaceholder = {
   heading: `Pitch your startup,
@@ -17,8 +17,8 @@ const heroPlaceholder = {
   subHeading: `Submit Ideas, vote on Pitches, and get noticed in Virtual competitions`,
 };
 
-export const Default: StoryHeroTemp = {
-  render: () => {
-    return <HeroTemp placeholder={heroPlaceholder} />;
+export const Default: HeroTempStory = {
+  args: {
+    placeholder: heroPlaceholder,
   },
 };
