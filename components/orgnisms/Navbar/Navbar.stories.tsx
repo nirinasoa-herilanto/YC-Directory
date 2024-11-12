@@ -12,5 +12,5 @@ export default meta;
 type NavbarStory = StoryObj<typeof Navbar>;
 
 export const Default: NavbarStory = {
-  decorators: [(Story) => <Story />],
+  render: () => <Navbar />,
 };

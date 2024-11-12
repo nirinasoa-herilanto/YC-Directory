@@ -1,5 +1,6 @@
-import type { StorybookConfig } from '@storybook/nextjs';
 import path from 'path';
+
+import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   stories: [
@@ -11,6 +12,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    '@tomfreudenberg/next-auth-mock/storybook',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -23,6 +25,7 @@ const config: StorybookConfig = {
         ...config.resolve.alias,
         '@project/auth': path.resolve(__dirname, '../auth'),
         '@project/styles': path.resolve(__dirname, '../styles'),
+        '@project/lib/actions': path.resolve(__dirname, '../lib/actions/auth'),
         '@project/components/atoms': path.resolve(
           __dirname,
           '../components/atoms',
