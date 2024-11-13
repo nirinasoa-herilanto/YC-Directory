@@ -11,7 +11,8 @@
     "watch:tailwind": "npx tailwindcss -i ./styles/globals.css -o ./styles/output.css --watch",
     "watch:storybook": "storybook dev -p 6006",
     "storybook": "concurrently pnpm:watch:*",
-    "build-storybook": "pnpm build:tailwind && storybook build"
+    "build-storybook": "pnpm build:tailwind && storybook build",
+    "sanity:typegen": "npx sanity@latest typegen generate"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -29,6 +30,7 @@
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
     "sanity": "^3.62.3",
+    "sanity-plugin-markdown": "^5.0.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
