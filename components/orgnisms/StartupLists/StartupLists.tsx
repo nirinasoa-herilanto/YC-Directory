@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { IStartup } from '@project/utils/interface';
+import { Startup } from '@project/sanity/types';
 
 import { StartupItem } from '@project/components/molecules';
 
 export type StartupListsProps = {
   className?: string;
-  data: IStartup[];
+  data: Omit<Startup, 'author'>[];
 };
 
 const StartupLists: React.FC<StartupListsProps> = ({ className, data }) => {
