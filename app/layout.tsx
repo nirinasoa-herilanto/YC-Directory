@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { Poppins } from "next/font/google";
+import { Poppins } from 'next/font/google';
 
-import { ThemeProvider } from "@project/store/theme";
+import { ThemeProvider } from '@project/store/theme';
 
-import "../styles/globals.css";
+import '../styles/globals.css';
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-poppins",
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
-  title: "YC Directory",
-  description: "Pitch, Vote and Grow",
+  title: 'YC Directory',
+  description: 'Pitch, Vote and Grow',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className}`}>
+      <body className={`${poppins.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

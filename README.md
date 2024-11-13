@@ -55,6 +55,11 @@ Please, create file `.env.local` inside the project root directory, then add:
 NEXT_PUBLIC_SANITY_PROJECT_ID=
 NEXT_PUBLIC_SANITY_DATASET=
 
+AUTH_SECRET=
+
+AUTH_GITHUB_ID=
+AUTH_GITHUB_SECRET=
+
 ```
 
 PS: Some env variables will be added later 😉.
