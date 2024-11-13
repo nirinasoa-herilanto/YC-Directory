@@ -13,7 +13,9 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuItem,
+  DropdownMenuSeparator,
 } from '@project/components/atoms';
+import Image from 'next/image';
 
 export type AuthNavigationProps = {
   className?: string;
@@ -35,11 +37,24 @@ const AuthNavigation: React.FC<AuthNavigationProps> = async ({ className }) => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="flex flex-col gap-3" align="end">
-            <span>{`👋 ${session?.user?.name}`}</span>
+            <div className="flex items-center gap-1">
+              <Image
+                className="bg-cover rounded-md"
+                src={session?.user?.image || ''}
+                alt={session.user.name || 'user'}
+                width={32}
+                height={32}
+              />
+              <span>{`Hi, ${session?.user?.name}`}</span>
+            </div>
+
+            <DropdownMenuSeparator />
 
             <Link href={'/create'}>
               <DropdownMenuItem>Create</DropdownMenuItem>
             </Link>
+
+            <DropdownMenuSeparator />
 
             <LogoutButton />
           </DropdownMenuContent>
