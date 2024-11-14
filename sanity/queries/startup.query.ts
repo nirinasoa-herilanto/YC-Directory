@@ -29,3 +29,10 @@ export const STARTUP_DETAIL_QUERY = defineQuery(`
     _createdAt
 }
     `);
+
+export const VIEW_STARTUP_QUERY = defineQuery(`
+*[_type == "startup" && _id == $id ][0] {
+  _id,
+    views
+}
+  `);
