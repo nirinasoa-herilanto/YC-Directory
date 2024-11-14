@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { client } from '@project/sanity/lib/client';
 import { Startup } from '@project/sanity/types';
-
 import { ALL_STARTUPS } from '@project/sanity/queries';
+import { sanityFetch, SanityLive } from '@project/sanity/live';
 
 import { StartupLists } from '@project/components/orgnisms';
 
@@ -16,7 +15,12 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
   className,
   query,
 }) => {
-  const startups = await client.fetch<Startup[]>(ALL_STARTUPS);
+  const { data: startups } = (await sanityFetch({
+    query: ALL_STARTUPS,
+    params: { search: query || null },
+  })) as {
+    data: Startup[];
+  };
 
   return (
     <section className={`${className || ''}`}>
@@ -24,7 +28,15 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
         {query ? `Search results for "${query}"` : 'All Startups'}
       </h3>
 
-      <StartupLists data={startups} />
+      {startups.length !== 0 && <StartupLists data={startups} />}
+
+      {query && startups.length === 0 && (
+        <div className="w-full h-[500px] flex items-center justify-center">
+          {`No results for "${query}", please try another one 😉.`}
+        </div>
+      )}
+
+      <SanityLive />
     </section>
   );
 };
