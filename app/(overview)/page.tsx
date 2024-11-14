@@ -18,7 +18,7 @@ export default async function page({
 
   return (
     <main>
-      <HeroTemp placeholder={heroPlaceholder} query={query} />
+      <HeroTemp placeholder={heroPlaceholder} query={query} showSearchForm />
       <StartupCollectionsTemp className="max-w-[1200px] m-auto" query={query} />
     </main>
   );

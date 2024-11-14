@@ -14,3 +14,18 @@ export const ALL_STARTUPS_QUERY = defineQuery(`
     _createdAt
 }
   `);
+
+export const STARTUP_DETAIL_QUERY = defineQuery(`
+*[_type == "startup" && slug.current == $slug ][0] {
+  _id,
+    title,
+    pitch,
+    description,
+    image,
+    views,
+    category,
+    author -> {_id, username, bio, email, image},
+    slug,
+    _createdAt
+}
+    `);
