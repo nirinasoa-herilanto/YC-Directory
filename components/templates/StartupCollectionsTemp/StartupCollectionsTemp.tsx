@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Startup } from '@project/sanity/types';
 import { ALL_STARTUPS_QUERY } from '@project/sanity/queries';
 import { sanityFetch, SanityLive } from '@project/sanity/live';
 
 import { StartupLists } from '@project/components/orgnisms';
+import { StartupItemType } from '@project/utils/types';
 
 export type StartupCollectionsTempProps = {
   className?: string;
@@ -19,7 +19,7 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
     query: ALL_STARTUPS_QUERY,
     params: { search: query || null },
   })) as {
-    data: Startup[];
+    data: StartupItemType[];
   };
 
   return (
