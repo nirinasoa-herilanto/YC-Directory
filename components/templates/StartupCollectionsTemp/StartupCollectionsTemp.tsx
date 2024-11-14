@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Startup } from '@project/sanity/types';
-import { ALL_STARTUPS } from '@project/sanity/queries';
+import { ALL_STARTUPS_QUERY } from '@project/sanity/queries';
 import { sanityFetch, SanityLive } from '@project/sanity/live';
 
 import { StartupLists } from '@project/components/orgnisms';
@@ -16,7 +16,7 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
   query,
 }) => {
   const { data: startups } = (await sanityFetch({
-    query: ALL_STARTUPS,
+    query: ALL_STARTUPS_QUERY,
     params: { search: query || null },
   })) as {
     data: Startup[];
