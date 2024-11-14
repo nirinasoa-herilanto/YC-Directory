@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 import markdownit from 'markdown-it';
 
@@ -10,6 +12,8 @@ import { formattedDate } from '@project/utils/app';
 import { StartupItemType } from '@project/utils/types';
 
 import { HeroPlaceholderType, HeroTemp } from '@project/components/templates';
+import { Skeleton } from '@project/components/atoms';
+import { StartupView } from '@project/components/molecules';
 
 export const experimental_ppr = true;
 
@@ -23,6 +27,8 @@ export default async function page({
   const startup = await client.fetch<StartupItemType>(STARTUP_DETAIL_QUERY, {
     slug,
   });
+
+  if (!startup) return notFound();
 
   const md = markdownit({ html: true });
   const formattedPitch = md.render(startup.pitch || '');
@@ -79,6 +85,10 @@ export default async function page({
           )}
         </div>
       </section>
+
+      <Suspense fallback={<Skeleton className="view_skeleton" />}>
+        <StartupView id={startup._id} />
+      </Suspense>
     </main>
   );
 }
