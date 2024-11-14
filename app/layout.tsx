@@ -5,6 +5,7 @@ import { Poppins } from 'next/font/google';
 import { ThemeProvider } from '@project/store/theme';
 
 import '../styles/globals.css';
+import 'easymde/dist/easymde.min.css';
 
 const poppins = Poppins({
   subsets: ['latin'],

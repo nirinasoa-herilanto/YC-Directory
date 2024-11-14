@@ -3,15 +3,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { EyeIcon } from 'lucide-react';
 
-import { Author, Startup } from '@project/sanity/types';
-
+import type { StartupItemType } from '@project/utils/types';
 import { formattedDate, truncate } from '@project/utils/app';
 
 import { Button } from '@project/components/atoms';
 
 export type StartupItemProps = {
   className?: string;
-  startup: Omit<Startup, 'author'> & { author?: Author };
+  startup: StartupItemType;
 };
 
 const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {

@@ -12,7 +12,7 @@ export const startupSchema = defineType({
     }),
     defineField({
       name: 'pitch',
-      type: 'text',
+      type: 'markdown',
     }),
     defineField({
       name: 'description',
