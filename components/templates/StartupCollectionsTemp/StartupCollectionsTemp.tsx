@@ -23,7 +23,7 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
   };
 
   return (
-    <section className={`${className || ''}`}>
+    <section className={`py-8 md:mx-4 xl:m-auto ${className || ''}`}>
       <h3 className="my-5 font-bold text-[32px]">
         {query ? `Search results for "${query}"` : 'All Startups'}
       </h3>
