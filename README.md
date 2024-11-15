@@ -64,6 +64,8 @@ NEXT_PUBLIC_SANITY_PROJECT_ID=
 NEXT_PUBLIC_SANITY_DATASET="production"
 NEXT_PUBLIC_SANITY_API_VERSION="vX" // latest version
 
+SANITY_WRITE_TOKEN= // allows us to create and update Startup
+
 ```
 
 PS: Some env variables will be added later 😉.
