@@ -31,6 +31,12 @@ git clone https://github.com/nirinasoa-herilanto/YC-Directory
 pnpm install // for installing project dependencies
 ```
 
+- Before running the local dev, please run the following command to update our Next project (i.e. use the canary version of NextJS) to stay updated and to avoid some bugs that broke the app:
+
+```bash
+pnpm next:canary // will update the project with the latest version
+```
+
 - For running the project in local development:
 
 ```bash
