@@ -2,6 +2,11 @@ export * from './button';
 export * from './card';
 export * from './dropdown-menu';
 export * from './skeleton';
+export * from './label';
+export * from './input';
+export * from './textarea';
+export * from './toast';
+export * from './toaster';
 
 export { default as Logo } from './Logo/Logo';
 export { default as HeroWrapper } from './HeroWrapper/HeroWrapper';
