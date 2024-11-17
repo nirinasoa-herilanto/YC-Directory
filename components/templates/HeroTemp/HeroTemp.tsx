@@ -10,7 +10,7 @@ import { SearchForm } from '@project/components/molecules';
 
 export type HeroPlaceholderType = {
   heading: string;
-  subHeading: string;
+  subHeading?: string;
   tag?: string;
 };
 
@@ -19,6 +19,7 @@ export type HeroTempProps = {
   query?: string;
   placeholder: HeroPlaceholderType;
   showTag?: boolean;
+  showSubHeading?: boolean;
   showSearchForm?: boolean;
 };
 
@@ -27,13 +28,17 @@ const HeroTemp: React.FC<HeroTempProps> = ({
   placeholder,
   query,
   showTag = false,
+  showSubHeading = false,
   showSearchForm,
 }) => {
   return (
     <HeroWrapper className={`${className || ''}`}>
       {showTag && <Tag>{placeholder.tag}</Tag>}
+
       <Heading>{placeholder.heading}</Heading>
-      <SubHeading>{placeholder.subHeading}</SubHeading>
+
+      {showSubHeading && <SubHeading>{placeholder.subHeading}</SubHeading>}
+
       {showSearchForm && <SearchForm query={query} />}
     </HeroWrapper>
   );
