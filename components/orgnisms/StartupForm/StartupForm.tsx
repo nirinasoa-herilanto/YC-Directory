@@ -54,8 +54,6 @@ const StartupForm: React.FC<StartupFormProps> = ({ className }) => {
 
   useEffect(() => {
     if (status === 'SUCCESS' && slug?.current?.length !== 0) {
-      console.log('slug', slug);
-
       setPicth('');
 
       toast({
