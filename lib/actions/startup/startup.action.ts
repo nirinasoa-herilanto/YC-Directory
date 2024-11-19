@@ -41,6 +41,7 @@ export const createStartupAction = async (
 
     const inputData = {
       ...output,
+      views: 0,
       author: {
         _type: 'reference',
         _ref: session?.id,
