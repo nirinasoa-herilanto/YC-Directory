@@ -24,7 +24,6 @@ const CustomMarkdownEditorWithLabel: React.FC<
 
       <MDEditor
         className="startup-form_editor"
-        id="pitch"
         preview="edit"
         height={300}
         style={{ borderRadius: 20, overflow: 'hidden' }}
