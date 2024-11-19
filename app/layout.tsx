@@ -1,11 +1,13 @@
+import '../styles/globals.css';
+import 'easymde/dist/easymde.min.css';
+
 import type { Metadata } from 'next';
 
 import { Poppins } from 'next/font/google';
 
 import { ThemeProvider } from '@project/store/theme';
 
-import '../styles/globals.css';
-import 'easymde/dist/easymde.min.css';
+import { Toaster } from '@project/components/atoms';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -33,6 +35,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

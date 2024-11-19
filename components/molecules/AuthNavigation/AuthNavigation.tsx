@@ -50,8 +50,8 @@ const AuthNavigation: React.FC<AuthNavigationProps> = async ({ className }) => {
 
             <DropdownMenuSeparator />
 
-            <Link href={'/create'}>
-              <DropdownMenuItem>Create</DropdownMenuItem>
+            <Link href={'/startups/create'}>
+              <DropdownMenuItem>Create your Startup</DropdownMenuItem>
             </Link>
 
             <DropdownMenuSeparator />
