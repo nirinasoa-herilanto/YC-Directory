@@ -1,27 +1,29 @@
 'use client';
 
-import React, { useState, useActionState } from 'react';
-import { ZodError } from 'zod';
+import React, { useState, useActionState, useEffect } from 'react';
+import { cn } from '@project/styles';
+import { useRouter } from 'next/navigation';
 
 import { useToast } from '@project/hooks/toast';
 
-import { startupFormSchema } from '@project/utils/validations';
 import { InitialStartupStateType } from '@project/utils/types';
 
+import { createStartupAction } from '@project/lib/actions';
+
 import { Send } from 'lucide-react';
-import { Button } from '@project/components/atoms';
 
 import {
   CustomInputWithLabel,
   CustomMarkdownEditorWithLabel,
   CustomTextareaWithLabel,
 } from '@project/components/molecules';
+import { Button } from '@project/components/atoms';
 
 export type StartupFormProps = {
   className?: string;
 };
 
-const initialStartupState = {
+export const initialStartupState = {
   data: {
     title: '',
     description: '',
@@ -29,77 +31,43 @@ const initialStartupState = {
     image: '',
     pitch: '',
   },
+  slug: {},
   message: null,
   errors: {},
+  status: 'INITIAL',
 } as InitialStartupStateType;
 
 const StartupForm: React.FC<StartupFormProps> = ({ className }) => {
   const [pitch, setPicth] = useState<string>('');
 
+  const router = useRouter();
   const { toast } = useToast();
 
-  const submitStartupHandler = async (
-    prevState: InitialStartupStateType,
-    formData: FormData,
-  ) => {
-    const formValues = {
-      title: formData.get('title') as string,
-      description: formData.get('description') as string,
-      category: formData.get('category') as string,
-      image: formData.get('image') as string,
-      pitch,
-    };
+  const submitStartupHandler = createStartupAction.bind(null, pitch);
 
-    try {
-      await startupFormSchema.parseAsync(formValues);
+  const [state, formAction, isPending] = useActionState(
+    submitStartupHandler,
+    initialStartupState,
+  );
 
-      // add startup to Sanity
-      // console.log('🏠 FORM VALUES', formValues);
+  const { status, slug } = state;
+
+  useEffect(() => {
+    if (status === 'SUCCESS' && slug?.current?.length !== 0) {
+      console.log('slug', slug);
+
+      setPicth('');
 
       toast({
         title: 'Success',
         description: 'Your Startup idea was submitted successfully 😃.',
       });
 
-      setPicth(''); // resest MD editor
-
-      return {
-        ...initialStartupState,
-        message: 'Startup added successfully 😃',
-      } as InitialStartupStateType;
-    } catch (error) {
-      if (error instanceof ZodError) {
-        const err = error.flatten().fieldErrors;
-
-        // console.log('💥 CATCH ERROR', err);
-        // console.log('🏡 PREV STATE ERROR', prevState);
-
-        toast({
-          title: 'Error: Invalid input',
-          description: '💥 Please check your inputs and try again.',
-          variant: 'destructive',
-        });
-
-        return {
-          ...prevState,
-          data: { ...formValues },
-          message: '🙂 Invalid input. Please check it again.',
-          errors: { ...err },
-        };
-      }
-
-      return {
-        ...prevState,
-        data: { ...formValues },
-        message: 'An error was occured. Please, try again 😁.',
-      };
+      router.push(`/startups/${state.slug?.current}`);
     }
-  };
 
-  const [state, formAction, isPending] = useActionState(
-    submitStartupHandler,
-    initialStartupState,
-  );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, slug]);
 
   return (
     <form className={`startup-form ${className || ''}`} action={formAction}>
@@ -151,11 +119,23 @@ const StartupForm: React.FC<StartupFormProps> = ({ className }) => {
       <CustomMarkdownEditorWithLabel
         htmlFor="picth"
         labelTxt="Pitch"
+        id="pitch"
         value={pitch}
         defaultValue={state.data?.pitch || ''}
         onChange={(val) => setPicth(val as string)}
         error={state.errors?.pitch}
       />
+
+      {state.message && (
+        <p
+          className={cn(
+            'text-center font-semibold',
+            state.status !== 'SUCCESS' ? 'text-red-500' : 'text-green-800',
+          )}
+        >
+          {state.message}
+        </p>
+      )}
 
       <Button className="startup-form_btn" type="submit" disabled={isPending}>
         {isPending ? (

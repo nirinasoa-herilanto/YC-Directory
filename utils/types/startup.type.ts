@@ -10,6 +10,11 @@ export type InitialStartupStateType = {
     image?: string;
     pitch?: string;
   };
+  slug?: {
+    _type?: string;
+    current?: string;
+  };
+  status: string;
   message?: string | null;
   errors?: {
     title?: string[];
