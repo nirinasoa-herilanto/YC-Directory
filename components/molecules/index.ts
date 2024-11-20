@@ -9,3 +9,4 @@ export { default as StartupView } from './StartupView/StartupView';
 export { default as CustomInputWithLabel } from './CustomInputWithLabel/CustomInputWithLabel';
 export { default as CustomTextareaWithLabel } from './CustomTextareaWithLabel/CustomTextareaWithLabel';
 export { default as CustomMarkdownEditorWithLabel } from './CustomMarkdownEditorWithLabel/CustomMarkdownEditorWithLabel';
+export { default as AuthorItem } from './AuthorItem/AuthorItem';
