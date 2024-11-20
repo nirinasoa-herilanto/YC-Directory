@@ -162,6 +162,7 @@ export type Author = {
   bio?: string;
   email?: string;
   image?: string;
+  slug?: Slug;
 };
 
 export type Markdown = string;

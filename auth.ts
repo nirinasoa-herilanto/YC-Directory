@@ -5,8 +5,9 @@ import { client } from './sanity/lib/client';
 import { writeClient } from './sanity/lib/write-client';
 
 import { Author } from './sanity/types';
+import { generatedSlug } from './utils/app';
 
-import { AUTHOR_PROFILE_QUERY } from './sanity/queries';
+import { SESSION_AUTHOR_QUERY } from './sanity/queries';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
@@ -14,7 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async signIn({ profile }) {
       const currentUser = await client
         .withConfig({ useCdn: false })
-        .fetch<Author>(AUTHOR_PROFILE_QUERY, {
+        .fetch<Author>(SESSION_AUTHOR_QUERY, {
           email: profile?.email,
         });
 
@@ -27,6 +28,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: profile?.email,
           image: profile?.avatar_url,
           bio: profile?.bio || '',
+          slug: {
+            _type: 'slug',
+            current: generatedSlug(`${profile?.name}`),
+          },
         });
       }
 
@@ -36,7 +41,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account && profile) {
         const currentUser = await client
           .withConfig({ useCdn: false })
-          .fetch<Author>(AUTHOR_PROFILE_QUERY, {
+          .fetch<Author>(SESSION_AUTHOR_QUERY, {
             email: profile?.email,
           });
 

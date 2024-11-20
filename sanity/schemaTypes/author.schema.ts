@@ -25,6 +25,11 @@ export const authorSchema = defineType({
       name: 'image',
       type: 'string',
     }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      options: { source: 'username' },
+    }),
   ],
   preview: {
     select: { title: 'username' },
