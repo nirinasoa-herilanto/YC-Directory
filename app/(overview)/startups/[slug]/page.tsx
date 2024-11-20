@@ -17,8 +17,6 @@ import { HeroPlaceholderType, HeroTemp } from '@project/components/templates';
 import { Skeleton } from '@project/components/atoms';
 import { StartupView } from '@project/components/molecules';
 
-export const experimental_ppr = true;
-
 export default async function page({
   params,
 }: {
@@ -70,7 +68,7 @@ export default async function page({
 
       <section className="px-6 py-10 max-w-screen-lg mx-auto">
         <div className="flex items-center justify-between">
-          <Link href={`/users/${startup.author?._id}`}>
+          <Link href={`/authors/${startup.author?.slug?.current}`}>
             <div className="flex items-center gap-2">
               <Image
                 className="rounded-full shadow-md"

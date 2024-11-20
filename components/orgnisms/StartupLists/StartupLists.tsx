@@ -7,12 +7,28 @@ import { StartupItem } from '@project/components/molecules';
 export type StartupListsProps = {
   className?: string;
   data: StartupItemType[];
+  display?: 'catalogs' | 'detail';
 };
 
-const StartupLists: React.FC<StartupListsProps> = ({ className, data }) => {
+/**
+ * ### `display` props: `catalogs` or `detail`
+ * - `catalogs`, will display all startups with special grid items (.i.e. like on the Landing Page)
+ * - `detail`, used to display all startups with special grid like in author detail page ex: `/author/john-doe`
+ * @returns
+ */
+const StartupLists: React.FC<StartupListsProps> = ({
+  className,
+  data,
+  display = 'catalogs',
+}) => {
   return (
     <ul
-      className={`grid gap-5 md:grid-cols-2 lg:grid-cols-3  ${className || ''}`}
+      className={`${
+        display === 'catalogs'
+          ? 'grid gap-5 md:grid-cols-2 lg:grid-cols-3'
+          : 'grid gap-5 md:grid-cols-2'
+      }
+        ${className || ''}`}
     >
       {data.map((startup) => (
         <StartupItem key={startup._id} startup={startup} />
