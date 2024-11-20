@@ -1,6 +1,6 @@
 import {
   HeroTemp,
-  StartupCollectionsTemp,
+  StartupCollectionsLiveApiTemp,
 } from '@project/components/templates';
 
 const heroPlaceholder = {
@@ -24,7 +24,11 @@ export default async function page({
         showSubHeading
         showSearchForm
       />
-      <StartupCollectionsTemp className="max-w-[1200px] m-auto" query={query} />
+
+      <StartupCollectionsLiveApiTemp
+        className="max-w-[1200px] m-auto"
+        query={query}
+      />
     </main>
   );
 }
