@@ -3,4 +3,5 @@
 export * from './HeroTemp/HeroTemp';
 export { default as HeroTemp } from './HeroTemp/HeroTemp';
 
-export { default as StartupCollectionsTemp } from './StartupCollectionsTemp/StartupCollectionsTemp';
+export { default as StartupCollectionsLiveApiTemp } from './StartupCollectionsLiveApiTemp/StartupCollectionsLiveApiTemp';
+export { default as AuthorStartupCollectionsTemp } from './AuthorStartupCollectionsTemp/AuthorStartupCollectionsTemp';

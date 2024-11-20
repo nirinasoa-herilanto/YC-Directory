@@ -26,7 +26,10 @@ const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {
 
       <div className="flex justify-between items-center">
         <div className="flex flex-col gap-2">
-          <Link className="line-clamp-1" href={`/users/${startup.author?._id}`}>
+          <Link
+            className="line-clamp-1"
+            href={`/authors/${startup.author?.slug?.current}`}
+          >
             {startup?.author?.username}
           </Link>
           <Link
@@ -37,7 +40,7 @@ const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {
           </Link>
         </div>
 
-        <Link href={`/users/${startup.author?._id}`}>
+        <Link href={`/authors/${startup.author?.slug?.current}`}>
           <Image
             className="rounded-full"
             src={startup?.author?.image || ''}
@@ -60,6 +63,7 @@ const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {
           alt={startup.image || 'Startup image'}
           width={150}
           height={150}
+          priority
         />
       </Link>
 

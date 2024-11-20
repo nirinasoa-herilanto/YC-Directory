@@ -6,15 +6,17 @@ import { sanityFetch, SanityLive } from '@project/sanity/live';
 import { StartupLists } from '@project/components/orgnisms';
 import { StartupItemType } from '@project/utils/types';
 
-export type StartupCollectionsTempProps = {
+export type StartupCollectionsLiveApiTempProps = {
   className?: string;
   query?: string;
 };
 
-const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
-  className,
-  query,
-}) => {
+/**
+ * use to display all Startups with the ``live API`` functionality from SANITY (.i.e. real-time API)
+ */
+const StartupCollectionsLiveApiTemp: React.FC<
+  StartupCollectionsLiveApiTempProps
+> = async ({ className, query }) => {
   const { data: startups } = (await sanityFetch({
     query: ALL_STARTUPS_QUERY,
     params: { search: query || null },
@@ -41,4 +43,4 @@ const StartupCollectionsTemp: React.FC<StartupCollectionsTempProps> = async ({
   );
 };
 
-export default StartupCollectionsTemp;
+export default StartupCollectionsLiveApiTemp;
