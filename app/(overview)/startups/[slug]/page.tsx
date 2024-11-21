@@ -20,6 +20,7 @@ import {
 } from '@project/components/templates';
 import { Skeleton } from '@project/components/atoms';
 import { StartupView } from '@project/components/molecules';
+import { StartupSkeletonGrid } from '@project/components/orgnisms';
 
 export default async function page({
   params,
@@ -104,7 +105,11 @@ export default async function page({
       </section>
 
       {/* EDITOR PICKS */}
-      <Suspense fallback={<p>Loading Editor picks...</p>}>
+      <Suspense
+        fallback={
+          <StartupSkeletonGrid className="px-6 py-10 max-w-screen-lg mx-auto" />
+        }
+      >
         <PlaylistStartupCollectionsTemp
           className="px-6 py-10 max-w-screen-lg mx-auto"
           slug="editor-picks"

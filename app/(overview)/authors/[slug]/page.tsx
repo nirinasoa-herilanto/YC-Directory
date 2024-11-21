@@ -7,6 +7,7 @@ import { Author } from '@project/sanity/types';
 
 import { AuthorItem } from '@project/components/molecules';
 import { AuthorStartupCollectionsTemp } from '@project/components/templates';
+import { StartupSkeletonGrid } from '@project/components/orgnisms';
 
 export default async function page({
   params,
@@ -23,8 +24,7 @@ export default async function page({
     <section className="p-10 max-w-screen-xl m-auto grid gap-10 lg:grid-cols-[250px_auto] xl:grid-cols-[350px_auto]">
       <AuthorItem className="mt-10" author={author} />
 
-      {/* WILL BE UPDATED IN THE FUTURE */}
-      <Suspense fallback={<div>Loading startups ...</div>}>
+      <Suspense fallback={<StartupSkeletonGrid display="detail" />}>
         <AuthorStartupCollectionsTemp authorId={author._id} />
       </Suspense>
     </section>
