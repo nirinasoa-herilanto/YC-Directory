@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 
 import {
   HeroTemp,
@@ -10,6 +11,11 @@ const heroPlaceholder = {
   heading: `Pitch your startup,
   connect with entrepreneurs`,
   subHeading: `Submit Ideas, vote on Pitches, and get noticed in Virtual competitions`,
+};
+
+export const metadata: Metadata = {
+  title: 'YC Directory',
+  description: 'Pitch, Vote and Grow',
 };
 
 export default async function page({
