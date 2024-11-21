@@ -37,7 +37,7 @@ export default async function page({
 
   const author = await client.fetch<Author>(AUTHOR_PROFILE_QUERY, { slug });
 
-  if (!author) return notFound;
+  if (!author) return notFound();
 
   return (
     <section className="p-10 max-w-screen-xl m-auto grid gap-10 lg:grid-cols-[250px_auto] xl:grid-cols-[350px_auto]">
