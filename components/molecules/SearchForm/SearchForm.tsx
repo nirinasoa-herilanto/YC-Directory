@@ -26,7 +26,12 @@ const SearchForm: React.FC<SearchFormProps> = ({ className, query }) => {
 
       {query && <ResetSearchFormButton query={query} />}
 
-      <Button className="rounded-full" type="submit" size="icon">
+      <Button
+        className="rounded-full"
+        type="submit"
+        size="icon"
+        name="search-button"
+      >
         <Search className="size-5" />
       </Button>
     </Form>
