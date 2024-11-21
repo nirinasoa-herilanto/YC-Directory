@@ -118,7 +118,11 @@ For more information about `Sanity typegen`, we can check the official docs at t
 - Sanity
 - Storybook
 
-## Deployment N/A
+## Deployment
+
+The project is available on this [link](https://nhr-yc-directory.vercel.app/), and 30 days left with Sanity.
+
+Have fun 😃.
 
 ## Author
 
