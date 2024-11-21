@@ -12,6 +12,7 @@
     "watch:storybook": "storybook dev -p 6006",
     "storybook": "concurrently pnpm:watch:*",
     "build-storybook": "pnpm build:tailwind && storybook build",
+    "sanity:extract": "npx sanity schema extract",
     "sanity:typegen": "npx sanity@latest typegen generate",
     "next:canary": "pnpm add next@canary"
   },
