@@ -1,7 +1,10 @@
+import { Suspense } from 'react';
+
 import {
   HeroTemp,
   StartupCollectionsLiveApiTemp,
 } from '@project/components/templates';
+import { StartupSkeletonGrid } from '@project/components/orgnisms';
 
 const heroPlaceholder = {
   heading: `Pitch your startup,
@@ -25,10 +28,12 @@ export default async function page({
         showSearchForm
       />
 
-      <StartupCollectionsLiveApiTemp
-        className="max-w-[1200px] m-auto"
-        query={query}
-      />
+      <Suspense fallback={<StartupSkeletonGrid isCatalogs />}>
+        <StartupCollectionsLiveApiTemp
+          className="max-w-[1200px] m-auto"
+          query={query}
+        />
+      </Suspense>
     </main>
   );
 }

@@ -10,3 +10,4 @@ export { default as CustomInputWithLabel } from './CustomInputWithLabel/CustomIn
 export { default as CustomTextareaWithLabel } from './CustomTextareaWithLabel/CustomTextareaWithLabel';
 export { default as CustomMarkdownEditorWithLabel } from './CustomMarkdownEditorWithLabel/CustomMarkdownEditorWithLabel';
 export { default as AuthorItem } from './AuthorItem/AuthorItem';
+export { default as StartupSkeleton } from './StartupSkeleton/StartupSkeleton';
