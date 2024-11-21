@@ -7,6 +7,10 @@ const placeholder = {
   heading: 'Submit your Startup',
 } as HeroPlaceholderType;
 
+export const metadata = {
+  title: 'Create Startup | YC Directory',
+};
+
 export default async function page() {
   const session = await auth();
 

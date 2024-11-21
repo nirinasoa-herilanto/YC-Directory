@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,6 +22,26 @@ import {
 import { Skeleton } from '@project/components/atoms';
 import { StartupView } from '@project/components/molecules';
 import { StartupSkeletonGrid } from '@project/components/orgnisms';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const slug = (await params).slug;
+
+  const startup = await client.fetch<StartupItemType>(STARTUP_DETAIL_QUERY, {
+    slug,
+  });
+
+  return {
+    title: `${startup.title} | YC Directory`,
+    description: startup.description,
+    openGraph: {
+      images: startup.image,
+    },
+  };
+}
 
 export default async function page({
   params,
