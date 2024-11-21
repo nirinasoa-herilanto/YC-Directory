@@ -23,7 +23,7 @@ const StartupLists: React.FC<StartupListsProps> = ({
 }) => {
   return (
     <ul
-      className={`${
+      className={`py-10 px-5 md:px-0 ${
         display === 'catalogs'
           ? 'grid gap-5 md:grid-cols-2 lg:grid-cols-3'
           : 'grid gap-5 md:grid-cols-2'

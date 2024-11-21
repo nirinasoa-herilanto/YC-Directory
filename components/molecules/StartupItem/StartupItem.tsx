@@ -33,7 +33,7 @@ const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {
             {startup?.author?.username}
           </Link>
           <Link
-            className="font-semibold line-clamp-1"
+            className="text-xl font-semibold line-clamp-1"
             href={`/startups/${startup?.slug?.current}`}
           >
             {startup.title}
