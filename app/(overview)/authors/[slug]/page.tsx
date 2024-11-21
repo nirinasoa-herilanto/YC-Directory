@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 
@@ -8,6 +9,24 @@ import { Author } from '@project/sanity/types';
 import { AuthorItem } from '@project/components/molecules';
 import { AuthorStartupCollectionsTemp } from '@project/components/templates';
 import { StartupSkeletonGrid } from '@project/components/orgnisms';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const slug = (await params).slug;
+
+  const author = await client.fetch<Author>(AUTHOR_PROFILE_QUERY, { slug });
+
+  return {
+    title: `${author.username} | YC Directory`,
+    description: author.bio || 'User member of YC Directory',
+    openGraph: {
+      images: author.image,
+    },
+  };
+}
 
 export default async function page({
   params,
