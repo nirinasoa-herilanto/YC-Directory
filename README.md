@@ -9,6 +9,8 @@ A project that allows Entrepreneurs to introduce and pitch their Startups and co
 
 ## Getting started
 
+#### 1) YC Directory app
+
 When developing this project, I used `pnpm` as a package manager and re-created the project with my coding style, but some assets and code snippets were picked from the original repository that we can find [here](https://github.com/adrianhajdin/yc_directory).
 
 - pnpm installation:
@@ -17,7 +19,7 @@ When developing this project, I used `pnpm` as a package manager and re-created 
 npm install -g pnpm
 ```
 
-### 1 - Local development:
+##### 1 - Local development:
 
 - We can clone the project by following this command:
 
@@ -53,7 +55,7 @@ pnpm storybook
 
 We can see the project stories on the browser at [http://localhost:6006/](http://localhost:6006/)
 
-### 2 - Env variables:
+##### 2 - Env variables:
 
 Please, create file `.env.local` inside the project root directory, then add:
 
@@ -75,6 +77,34 @@ SANITY_SECRET_TOKEN= // allows us to create and update Startup
 ```
 
 PS: Some env variables will be added later 😉.
+
+#### B) Sanity - YC Directory
+
+##### 1 - Sanity Typegen
+
+May be in the future, we want to add another data(ex: reviews, ...), and to generate types for those schemas, please use this guide bellow:
+
+- First, we need to extract our new schema
+
+```bash
+pnpm sanity:extract
+
+// after running this command, we get a message like this:
+// ✅ Extracted schema to D:\projects\yc-directory\project\schema.json
+
+```
+
+- Then, we can generate and get an updated typegen from those schema
+
+```bash
+pnpm sanity:typegen
+
+after running this command, we get a message like this:
+// ✅ Generated TypeScript types for 15 schema types and 0 GROQ queries in 0 files into: ./sanity/types.ts
+
+```
+
+For more information about `Sanity typegen`, we can check the official docs at this [link](https://www.sanity.io/docs/sanity-typegen).
 
 ## Authentication with Next Auth
 

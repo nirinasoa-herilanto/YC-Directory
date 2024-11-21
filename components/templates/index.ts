@@ -5,3 +5,4 @@ export { default as HeroTemp } from './HeroTemp/HeroTemp';
 
 export { default as StartupCollectionsLiveApiTemp } from './StartupCollectionsLiveApiTemp/StartupCollectionsLiveApiTemp';
 export { default as AuthorStartupCollectionsTemp } from './AuthorStartupCollectionsTemp/AuthorStartupCollectionsTemp';
+export { default as PlaylistStartupCollectionsTemp } from './PlaylistStartupCollectionsTemp/PlaylistStartupCollectionsTemp';

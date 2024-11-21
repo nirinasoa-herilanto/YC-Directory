@@ -13,7 +13,11 @@ import { STARTUP_DETAIL_QUERY } from '@project/sanity/queries';
 import { formattedDate } from '@project/utils/app';
 import { StartupItemType } from '@project/utils/types';
 
-import { HeroPlaceholderType, HeroTemp } from '@project/components/templates';
+import {
+  HeroPlaceholderType,
+  HeroTemp,
+  PlaylistStartupCollectionsTemp,
+} from '@project/components/templates';
 import { Skeleton } from '@project/components/atoms';
 import { StartupView } from '@project/components/molecules';
 
@@ -98,6 +102,14 @@ export default async function page({
           )}
         </div>
       </section>
+
+      {/* EDITOR PICKS */}
+      <Suspense fallback={<p>Loading Editor picks...</p>}>
+        <PlaylistStartupCollectionsTemp
+          className="px-6 py-10 max-w-screen-lg mx-auto"
+          slug="editor-picks"
+        />
+      </Suspense>
 
       <Suspense fallback={<Skeleton className="view_skeleton" />}>
         <StartupView id={startup._id} />
