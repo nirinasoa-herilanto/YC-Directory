@@ -15,6 +15,7 @@ const Logo: React.FC<LogoProps> = ({ className, src, alt }) => {
       alt={alt}
       width={144}
       height={30}
+      priority
     />
   );
 };
