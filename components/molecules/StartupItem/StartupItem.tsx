@@ -60,7 +60,7 @@ const StartupItem: React.FC<StartupItemProps> = ({ className, startup }) => {
         <Image
           className="startup-card_img shadow-sm"
           src={startup.image || ''}
-          alt={startup.image || 'Startup image'}
+          alt={startup.title || 'Startup image'}
           width={150}
           height={150}
           priority
