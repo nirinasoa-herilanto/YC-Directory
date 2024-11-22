@@ -7,7 +7,7 @@ import { Button } from '../button';
 export default function SignInWithGithubButton() {
   return (
     <form action={signInWithGithubAction}>
-      <Button type="submit">
+      <Button type="submit" aria-label="Signin Github button">
         <GitHubLogoIcon />
         <span className="hidden md:block">Sign in with GitHub</span>
       </Button>

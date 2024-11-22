@@ -30,7 +30,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ className, query }) => {
         className="rounded-full"
         type="submit"
         size="icon"
-        name="search-button"
+        aria-label="Search button"
       >
         <Search className="size-5" />
       </Button>
